@@ -1,3 +1,4 @@
+ console.log('testando')
 const diagram = document.querySelector('main');
 const firstAddButton = document.querySelector('.add-step');
 const initialSignalInput = document.getElementById('inputSignal');
