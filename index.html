@@ -1,75 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora CTO Fibra</title>
-  <link rel="stylesheet" href="assets/styles/style.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cálculo de CTO's</title>
+	<link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Calculadora CTO Fibra</h1>
-      <p class="muted">Calcula o sinal de entrada, as perdas do splitter e o sinal final na caixa e nos pontos futuros.</p>
+	<header class="page-header">
+		<h1>Cálculo de CTO's</h1>
+	</header>
 
-      <form id="calculator-form">
-        <div class="grid">
-          <div class="field">
-            <label for="inputSignal">Sinal de entrada (dBm)</label>
-            <input id="inputSignal" type="number" step="0.1" value="0" />
-          </div>
+	<main>
+		<div class="input-panel">
+			<div class="signal-title-row" hidden>
+				<div class="signal-heading">
+					<h2 class="signal-title">Sinal Inicial</h2>
+				</div>
+				<div class="signal-value-row">
+					<span class="signal-value"></span>
+					<button class="edit-signal" type="button" aria-label="Editar Sinal Inicial" title="Editar Sinal Inicial">&#9998;</button>
+				</div>
+			</div>
+			<label for="inputSignal">Sinal Inicial</label>
+			<input id="inputSignal" type="number" step="0.1" placeholder="Potência recebida" required />
+		</div>
 
-          <div class="field">
-            <label for="splitterType">Tipo de splitter</label>
-            <select id="splitterType">
-              <option value="1x2">1x2</option>
-              <option value="1x4">1x4</option>
-              <option value="1x8">1x8</option>
-              <option value="1x16">1x16</option>
-              <option value="1x32">1x32</option>
-            </select>
-          </div>
+		<div class="diagram-branch" aria-label="Adicionar etapa">
+			<span class="diagram-line"></span>
+			<button class="add-step" type="button" aria-label="Adicionar etapa">+</button>
+		</div>
+	</main>
 
-          <div class="field">
-            <label for="splitterMode">Modo do splitter</label>
-            <select id="splitterMode">
-              <option value="balanceado">Balanceado</option>
-              <option value="desbalanceado">Desbalanceado</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="ctoLoss">Acréscimo de CTO (dB)</label>
-            <input id="ctoLoss" type="number" step="0.1" value="0.5" />
-          </div>
-        </div>
-
-        <div style="margin-top: 20px;">
-          <button type="submit">Calcular</button>
-        </div>
-      </form>
-
-      <div class="result">
-        <h2>Resultado</h2>
-        <div class="result-grid">
-          <div class="box">
-            <strong>Sinal após splitter</strong>
-            <span id="signalAfterSplitter">0.00 dBm</span>
-          </div>
-          <div class="box">
-            <strong>Sinal na caixa</strong>
-            <span id="signalBox">0.00 dBm</span>
-          </div>
-          <div class="box">
-            <strong>Sinal futuro</strong>
-            <span id="signalFuture">0.00 dBm</span>
-          </div>
-        </div>
-        <div id="status" class="status">Status: aguardando cálculo.</div>
-      </div>
-    </div>
-  </div>
-
-  <script src="assets/scripts/script.js"></script>
+	<script src="assets/scripts/script.js"></script>
 </body>
 </html>
